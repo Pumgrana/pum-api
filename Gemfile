@@ -13,7 +13,7 @@ gem 'pg'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 # Auth
-gem 'omniauth', '~> 1.3.1'
+gem 'omniauth'
 gem 'devise_token_auth'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

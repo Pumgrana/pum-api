@@ -1,4 +1,7 @@
 class PluginController < ApplicationController
+
+  before_action :authenticate_user!
+  
   def create
     enter_date = params[:enter_date]
     leave_time = params[:leave_time]
