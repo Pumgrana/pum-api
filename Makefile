@@ -1,21 +1,16 @@
 PROJECT_NAME := pumgrana-pum-api
 REGISTRY := docker.pumgrana.com
+LATEST := $(PROJECT_NAME):latest
 
 docker:
-	docker build -t $(PROJECT_NAME) .
+	docker build -t $(LATEST) .
 
 run:
-	./compose.py latest restart
+	docker run -it $(LATEST)
 
 push:
-	docker tag $(PROJECT_NAME) $(REGISTRY)/$(PROJECT_NAME)
-	docker push $(REGISTRY)/$(PROJECT_NAME)
-
-pull:
-	docker pull $(REGISTRY)/$(PROJECT_NAME)
-
-freeze:
 	$(eval VERSION = $(shell date +%Y%m%d%H))
 	$(eval FULL_NAME = $(REGISTRY)/$(PROJECT_NAME):$(VERSION))
-	docker tag $(PROJECT_NAME) $(FULL_NAME)
+	docker tag $(LATEST) $(FULL_NAME)
+	docker push $(LATEST)
 	docker push $(FULL_NAME)
