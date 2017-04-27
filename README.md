@@ -1,24 +1,14 @@
-# README
+#### Create User
+```
+curl -H "Content-Type: application/json" -X POST -d '{"email":"test@test.com","password":"12345678"}' http://localhost:3000/auth/
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Sign in
+```
+curl -v -H "Content-Type: application/json" -X POST -d '{"email":"test@test.com","password":"12345678"}' http://localhost:3000/auth/sign_in
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Validate token
+```
+curl -v -H "Content-Type: application/json" -X POST -d '{"access-token":"lokCml393J_bvUZKvvZK_g","uid":"test@test.com","client":"iZBty-kK5VjhJJyQc6ch-A"}'http://localhost:3000/auth/sign_in
+```
