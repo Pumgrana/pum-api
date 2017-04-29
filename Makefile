@@ -5,9 +5,6 @@ LATEST := $(PROJECT_NAME):latest
 docker:
 	docker build -t $(LATEST) .
 
-run:
-	docker run -it $(LATEST)
-
 push:
 	$(eval VERSION = $(shell date +%Y%m%d%H))
 	$(eval FULL_NAME = $(REGISTRY)/$(PROJECT_NAME):$(VERSION))
