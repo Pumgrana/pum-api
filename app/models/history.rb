@@ -1,6 +1,9 @@
 require 'elasticsearch/model'
 
 class History < ApplicationRecord
+
+  belongs_to :user
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   mapping do

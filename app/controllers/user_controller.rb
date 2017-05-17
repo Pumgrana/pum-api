@@ -9,7 +9,7 @@ class UserController < ApplicationController
   end
   
   def index
-    histories = History.all
+    histories = History.find_by_user_id(current_user.id)
     render json: histories
   end
 end
