@@ -6,11 +6,11 @@ class PluginController < ApplicationController
   def create
     url = params[:url]
     enter_date = params[:enter_date]
+    leave_date = params[:leave_date]
+    focus_elasped_time = params[:focus_elasped_time]
+    total_elasped_time = params[:total_elasped_time]
     current_history = History.find_by(url: url, enter_date: enter_date)
-    leave_time = params[:leave_time]
-    if  current_history == nil
-      focus_elasped_time = params[:focus_elasped_time]
-      total_elasped_time = params[:total_elasped_time]
+    if current_history == nil
       history = History.create(
                               url: params[:url],
                               origin_url: params[:origin_url],
@@ -21,7 +21,7 @@ class PluginController < ApplicationController
                               image: params[:image],
                               search: params[:search],
                               enter_date: enter_date,
-                              leave_date: leave_time,
+                              leave_date: leave_date,
                               focus_elasped_time: focus_elasped_time,
                               total_elasped_time: total_elasped_time,
                               user_id: current_user.id)
@@ -43,7 +43,7 @@ class PluginController < ApplicationController
     end
     #render json: current_history
   end
-  
+
   def destroy
     id = params[:id]
     history = History.find_by(id: id)
