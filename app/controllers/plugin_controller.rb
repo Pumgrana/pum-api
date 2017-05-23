@@ -20,7 +20,7 @@ class PluginController < ApplicationController
                               leave_time: leave_time,
                               focus_elasped_time: focus_elasped_time,
                               total_elasped_time: total_elasped_time,
-                              user_id: params[:user_id])
+                              user_id: current_user.id)
     history.save
     render json: history
   end
