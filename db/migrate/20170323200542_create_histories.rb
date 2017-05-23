@@ -1,7 +1,6 @@
 class CreateHistories < ActiveRecord::Migration[5.0]
   def change
     create_table :histories do |t|
-      t.string :email
       t.string :url
       t.string :origin_url
       t.string :target_url
