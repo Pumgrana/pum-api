@@ -4,7 +4,7 @@ class PluginController < ApplicationController
   
   def create
     enter_date = params[:enter_date]
-    leave_time = params[:leave_time]
+    leave_date = params[:leave_date]
     focus_elasped_time = params[:focus_elasped_time]
     total_elasped_time = params[:total_elasped_time]
     history = History.create(email: current_user.email,
@@ -17,7 +17,7 @@ class PluginController < ApplicationController
                               image: params[:image],
                               search: params[:search],
                               enter_date: enter_date,
-                              leave_time: leave_time,
+                              leave_date: leave_date,
                               focus_elasped_time: focus_elasped_time,
                               total_elasped_time: total_elasped_time,
                               user_id: current_user.id)
