@@ -5,4 +5,6 @@ ACCESS_TOKEN=$(echo "${RET}" | grep "access-token:" | sed 's/^.*: //g' | sed 's/
 MY_UID=$(echo "${RET}" | grep "uid:" | sed 's/^.*: //g' | sed 's/[^a-zA-Z0-9_\-]$//g')
 CLIENT=$(echo "${RET}" | grep "client:" | sed 's/^.*: //g' | sed 's/[^a-zA-Z0-9_\-]$//g')
 EXPIRY=$(echo "${RET}" | grep "expiry:" | sed 's/^.*: //g' | sed 's/[^a-zA-Z0-9_\-]$//g')
+
 echo "{\"access-token\": \"${ACCESS_TOKEN}\", \"uid\": \"${MY_UID}\", \"client\": \"${CLIENT}\", \"expiry\": \"${EXPIRY}\"}"
+# echo "-H 'access-token: ${ACCESS_TOKEN}' -H 'uid: ${MY_UID}' -H 'client: ${CLIENT}' -H 'expiry: ${EXPIRY}'"
